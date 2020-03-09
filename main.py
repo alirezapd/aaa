@@ -1,7 +1,7 @@
 from pyrogram.client import Client, Filters
 from time import sleep
 
-session_name, api_id, api_hash = "", 538848, "24416a50579e542238769a509be70ce7"
+session_name, api_id, api_hash = "pyrobot", 538848, "24416a50579e542238769a509be70ce7"
 bot = Client( session_name=session_name, api_id=api_id, api_hash=api_hash )
 
 admin = [175770489, 769961309]
@@ -36,7 +36,7 @@ def bot_status(cli, msg):
 
 @bot.on_message(Filters.text, group=2)
 def bot_on(cli, msg):
-    if msg.text.startswith('start ') and msg.chat.id == admin and not s == 'off':
+    if msg.text.startswith('start ') and msg.from_user.id in admin and not s == 'off':
         channel = str(msg.text).replace('start ', '')
         msg.reply("✅ سیستم برای افزودن تعداد {} ربات به کانال {} فعال شد.".format( len(bot_list), channel))
         c,b = 0, 0
