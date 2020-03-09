@@ -1,4 +1,5 @@
 from pyrogram.client import Client, Filters
+from pyrogram.errors import FloodWait
 from time import sleep
 
 session_name, api_id, api_hash = "pyrobot", 538848, "24416a50579e542238769a509be70ce7"
@@ -54,8 +55,8 @@ def bot_on(cli, msg):
                                     # can_restrict_members=True
                                     )
                 c += 1
-            except Exception as e:
-                msg.reply(e)
+            except FloodWait:
+                sleep(FloodWait.x)
                 b += 1
         msg.reply("""🖥 افزودن ربات به کانال به پایان رسید!
 💥 تعداد ربات های اضافه شده : {}
