@@ -56,6 +56,8 @@ def bot_on(cli, msg):
                                     )
                 c += 1
             except FloodWait:
+                msg.reply("""❌ محدودیت FloodWait از سمت تلگرام!
+💥 ربات پس از {} ثانیه مجددا به کار خود ادامه میدهد.""".format(FloodWait.x))
                 sleep(FloodWait.x)
                 b += 1
         msg.reply("""🖥 افزودن ربات به کانال به پایان رسید!
