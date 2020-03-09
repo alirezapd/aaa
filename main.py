@@ -18,6 +18,7 @@ bot_list = [
     'chainfuel_bot', 'polyswarmbot', 'okforexpowersignals_bot', 'etherfarm_bot', 'freematerialbot', # 40
     'novelcoronavirusbot', 'bitzoobot', 'photo2pdf_bot', 'tcryptorbot', 'simplecryptobrokerbot',
     'pswmanagerbot', 'scmpnews_bot', 'dogeninja_bot', 'zumanjibot', 'GpyNanoBot', # 50
+    'LyricsMusicBot', 'RojdaBot', 'pixate_bot',
 ]
 
 s = 'on'
