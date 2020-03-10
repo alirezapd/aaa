@@ -1,8 +1,9 @@
 from pyrogram.client import Client, Filters
 from pyrogram.errors import FloodWait
 from time import sleep
+from random import randint
 
-session_name, api_id, api_hash = "pyrobot", 538848, "24416a50579e542238769a509be70ce7"
+session_name, api_id, api_hash = "pyro", 538848, "24416a50579e542238769a509be70ce7"
 bot = Client( session_name=session_name, api_id=api_id, api_hash=api_hash )
 
 admin = [175770489, 769961309]
@@ -43,7 +44,7 @@ def bot_on(cli, msg):
         msg.reply("✅ سیستم برای افزودن تعداد {} ربات به کانال {} فعال شد.".format( len(bot_list), channel))
         c,b = 0, 0
         for i in bot_list:
-            sleep(0.5)
+            sleep(randint(2, 5))
             try:
                 bot.promote_chat_member(channel, i,
                                     # can_change_info=True,
@@ -56,10 +57,10 @@ def bot_on(cli, msg):
                                     # can_restrict_members=True
                                     )
                 c += 1
-            except FloodWait:
+            except FloodWait as e:
                 msg.reply("""❌ محدودیت FloodWait از سمت تلگرام!
-💥 ربات پس از {} ثانیه مجددا به کار خود ادامه میدهد.""".format(FloodWait.x))
-                sleep(FloodWait.x)
+💥 ربات پس از {} ثانیه مجددا به کار خود ادامه میدهد.""".format(e.x))
+                sleep(e.x)
                 b += 1
             except Exception as e:
                 msg.reply(e)
